@@ -1,6 +1,6 @@
 # eg 1, only node names: `python3 main.py input.json name,reach`
-# eg 2: disambiguated node paths: `python3 main.py input.json boxers.name,reach`
-# eg 3: full node paths: `python3 main.py input.json boxers.name,boxers.stats.reach`
+# eg 2, disambiguated node paths: `python3 main.py input.json boxers.name,reach`
+# eg 3, full node paths: `python3 main.py input.json boxers.name,boxers.stats.reach`
 import json, sys
 
 def walk_json_recursively(json_obj, target_keys, current_path):
