@@ -1,0 +1,18 @@
+{
+	"boxers": [
+		{
+			"name": "floyd",
+			"age": 26,
+			"stats": {
+				"reach": 72
+			}
+		},
+		{
+			"name": "bernard",
+			"age": 41,
+			"stats": {
+				"reach": 75
+			}
+		}
+	]
+}
