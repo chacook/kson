@@ -3,6 +3,23 @@
 # eg 3, full node paths: `python3 main.py input.json boxers.name,boxers.stats.reach`
 import json, sys
 
+def main():
+    if len(sys.argv) < 3:
+        err("Not enough args.")
+    try:
+        f = open(sys.argv[1])
+    except:
+        err("File couldn't be opened.")
+    try:
+        json_obj = json.load(f)
+    except:
+        err("Invalid JSON.")
+    f.close()
+    target_keys = sys.argv[2].split(",")
+    if "" in target_keys:
+        target_keys.remove("")
+    walk_json_recursively(json_obj, target_keys, "")
+
 def walk_json_recursively(json_obj, target_keys, current_path):
     if type(json_obj) is dict:
         for key in json_obj:
@@ -26,23 +43,6 @@ def print_node(path, v):
 def err(msg):
     print(msg)
     exit(1)
-
-def main():
-    if len(sys.argv) < 3:
-        err("Not enough args.")
-    try:
-        f = open(sys.argv[1])
-    except:
-        err("File couldn't be opened.")
-    try:
-        json_obj = json.load(f)
-    except:
-        err("Invalid JSON.")
-    f.close()
-    target_keys = sys.argv[2].split(",")
-    if "" in target_keys:
-        target_keys.remove("")
-    walk_json_recursively(json_obj, target_keys, "")
 
 if __name__ == "__main__":
     main()
