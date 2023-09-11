@@ -4,15 +4,13 @@
 import json, sys
 
 def walk_json_recursively(json_obj, target_keys, current_path):
-    found_targets = []
     if type(json_obj) is dict:
         for key in json_obj:
             new_path = f"{key}" if current_path == "" else f"{current_path}.{key}"
-            if key in target_keys:
-                print_node(new_path, json_obj[key])
-                found_targets.append(key)
             for tk in target_keys:
-                if tk not in found_targets and new_path.endswith(tk):
+                if tk == key:
+                    print_node(new_path, json_obj[key])
+                elif new_path.endswith(tk):
                     print_node(new_path, json_obj[key])
             walk_json_recursively(json_obj[key], target_keys, new_path)
     elif type(json_obj) is list:
