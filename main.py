@@ -25,9 +25,7 @@ def walk_json_recursively(json_obj, target_keys, current_path):
         for key in json_obj:
             new_path = f"{key}" if current_path == "" else f"{current_path}.{key}"
             for tk in target_keys:
-                if tk == key:
-                    print_node(new_path, json_obj[key])
-                elif new_path.endswith(tk):
+                if tk == key or new_path.endswith(tk):
                     print_node(new_path, json_obj[key])
             walk_json_recursively(json_obj[key], target_keys, new_path)
     elif type(json_obj) is list:
