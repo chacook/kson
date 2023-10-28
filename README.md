@@ -25,7 +25,7 @@ Given a JSON file named `input.json`:
 	]
 }
 ```
-You can use a node name on its own: 
+You can print all nodes with a particular key: 
 
 `python3 main.py input.json reach`
 
@@ -43,7 +43,7 @@ boxers.stats.reach: 72
 boxers.stats.reach: 75
 ```
 
-You can also print multiple nodes by comma separating the node name/disambiguated path/full path:
+You can also print multiple nodes by comma separating the node key/disambiguated path/full path:
 
 `python3 main.py input.json name,reach`
 
