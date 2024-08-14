@@ -45,7 +45,7 @@ boxers.stats.reach: 75
 
 You can also print multiple nodes by comma separating the node key/disambiguated path/full path:
 
-`python3 main.py input.json name,reach`
+`python3 main.py input.json name,age`
 
 Which returns:
 ```
